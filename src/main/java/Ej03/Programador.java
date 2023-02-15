@@ -4,6 +4,8 @@
  */
 package Ej03;
 
+import java.util.Objects;
+
 /**
  *
  * @author eduardo
@@ -12,7 +14,8 @@ public class Programador extends Empleados {
 
     private Categoria categoria;
 
-    public Programador(Categoria categoria) {
+    public Programador(Categoria categoria, double salario, String nombre, String nif, int edad) {
+        super(salario, nombre, nif, edad);
         this.categoria = categoria;
     }
 
@@ -25,6 +28,28 @@ public class Programador extends Empleados {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 67 * hash + Objects.hashCode(this.categoria);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Programador other = (Programador) obj;
+        return this.categoria == other.categoria;
     }
 
     @Override
