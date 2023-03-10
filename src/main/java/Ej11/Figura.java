@@ -8,7 +8,7 @@ package Ej11;
  *
  * @author eduardo
  */
-public class Figura {
+    public abstract class Figura {
     
     private int base;
     private int altura;
@@ -18,9 +18,7 @@ public class Figura {
         this.altura = altura;
     }
 
-    public void FiguraArea(){
-        int area = this.base * this.altura;
-    }
+    public abstract double calcularArea();
     
     public int getBase() {
         return base;
